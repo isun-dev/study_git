@@ -173,3 +173,36 @@ Changes not staged for commit:
 ```bash
 echo *.txt > .gitignore
 ```
+
+# 두 브랜치의 차이점을 비교(아래는 working directory 기준)
+
+```bash
+git diff
+
+diff --git a/a.txt b/a.txt      => 이전 버전과 현재 버전을 비교
+index a042389..a4bee34 100644    => git 상에서 파일을 참고할 때 쓰는 것
+--- a/a.txt    => 이전 버전
++++ b/a.txt    => 현재 버전
+@@ -1 +1,2 @@  => 아래 설명 확인
+ hello world!
++nicole
+```
+
+- -는 이전 파일을 의미, 그렇기 때문에 이전 파일의 첫번째 줄을 확인하라는 것을 의미한다.
+- +는 현재 파일을 의미, 그렇기 때뭉에 현재 파일의 첫번째와 두번째 줄을 확인하라는 것을 의미한다.
+- 기존의 hello world!에서 nicole이 추가되었음을 의미한다.
+
+# staging area 기준
+
+```bash
+git diff --staged
+```
+
+# staging area에 있는 파일들을  git repository에 올려 버전 만들기
+
+```bash
+git commit -m "first commit"
+
+# staging area에 add 하지 않고 바로 commit
+git commit -am "second commit"
+```
